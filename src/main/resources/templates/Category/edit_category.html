@@ -1,0 +1,16 @@
+<!-- src/main/resources/templates/edit_category.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Category</title>
+</head>
+<body>
+<h1>Edit Category</h1>
+<form action="#" th:action="@{/categories/{id}(id=${category.getCategoryId()})}" th:object="${category}" method="post">
+    <label>ID: <span th:text="${category.id}"></span></label><br/>
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <button type="submit">Update</button>
+</form>
+<a href="/categories">Back to Categories</a>
+</body>
+</html>

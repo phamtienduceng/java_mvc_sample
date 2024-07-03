@@ -1,0 +1,21 @@
+<!-- src/main/resources/templates/edit_product.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Product</title>
+</head>
+<body>
+<h1>Edit Product</h1>
+<form action="#" th:action="@{/products/{id}(id=${product.getProductId()})}" th:object="${product}" method="post">
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <label>Price: <input type="text" th:field="*{price}" /></label><br/>
+    <label>Category:
+        <select th:field="*{category}">
+            <option th:each="category : ${categories}" th:value="${category}" th:text="${category.getName()}" th:selected="${category == product.category}"></option>
+        </select>
+    </label><br/>
+    <button type="submit">Update</button>
+</form>
+<a href="/products">Back to Products</a>
+</body>
+</html>

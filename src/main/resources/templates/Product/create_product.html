@@ -1,0 +1,23 @@
+<!-- src/main/resources/templates/create_product.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Product</title>
+</head>
+<body>
+<h1>Create Product</h1>
+<form action="#" th:action="@{/products}" th:object="${product}" method="post">
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <label>Price: <input type="text" th:field="*{price}" /></label><br/>
+    <label>Stock: <input type="text" th:field="*{stock}" /></label><br/>
+    <label>Description: <input type="text" th:field="*{description}" /></label><br/>
+    <label>Category:
+        <select th:field="*{categoryId}">
+            <option th:each="category : ${categories}" th:value="${category.categoryId}" th:text="${category.name}"></option>
+        </select>
+    </label><br/>
+    <button type="submit">Save</button>
+</form>
+<a href="/products">Back to Products</a>
+</body>
+</html>
